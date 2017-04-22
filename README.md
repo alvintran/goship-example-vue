@@ -11,8 +11,9 @@ Repo này sử dụng hệ thống API của Goship để build một ứng dụ
 - [lodash](https://lodash.com/)
 ## Cài đặt project
 bash
-$ git clone https://github.com/alvintran/goship-example-vue.git
-$ cd goship-example-vue
+```$ git clone https://github.com/alvintran/goship-example-vue.git
+    $ cd goship-example-vue
+```
 Tạo tài khoản goship lấy client_key `& `client_secret theo hướng dẫn [tại đây](https://goship.io/developers/24-authentication-api).
 Copy app_key & app_secret của bạn vào file /src/components/login/index.js
 
