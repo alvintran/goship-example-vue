@@ -34,6 +34,4 @@ Copy `client_key` & `client_secret` của bạn vào file `/components/login.js`
 Authentication API
 Hướng dẫn authentication API trên hệ thống Goship
 ## Liên hệ
-
-alvintran/goship-example-vue
-Contribute to goship-example-vue development by creating an account on GitHub.
+- [https://goship.io/about-us](https://goship.io/about-us)
