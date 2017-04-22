@@ -137,7 +137,7 @@ const CreateShipment = {
   </div>',
   data () {
     return {
-      /*shipment: {
+      shipment: {
         rate: '',
         address_from: {
           name: '',
@@ -161,31 +161,6 @@ const CreateShipment = {
           height: '',
           metadata: ''
         }
-      },*/
-      shipment: {
-        address_from: {
-          name: 'nguyentranhoan',
-          phone: '01659360020',
-          city: '',
-          district: '',
-          street: 'ha noi'
-        },
-        address_to: {
-          name: 'lebaokhang',
-          phone: '01659360211',
-          city: '',
-          district: '',
-          street: 'ha dong'
-        },
-        parcel: {
-          cod: '1000',
-          weight: '10',
-          height: '10',
-          length: '10',
-          width: '10',
-          metadata: '10'
-        },
-        rate: ''
       },
       cities: [],
       districts: [],
