@@ -106,7 +106,7 @@ const CreateShipment = {
             <textarea type="text" class="form-control" placeholder="Ghi chú" v-model="shipment.parcel.metadata"></textarea>\
           </div>\
           <div class="form-group">\
-            <button type="submit" class="btn btn-primary">Tạo đơn</button>\
+            <button :disabled="submiting" type="submit" class="btn btn-primary">Tạo đơn</button>\
           </div>\
         </div>\
         <div class="col-sm-8">\
@@ -166,17 +166,21 @@ const CreateShipment = {
       districts: [],
       rates: [],
       doGetFee: 1,
-      errors: ''
+      errors: '',
+      submiting: false
     }
   },
   methods: {
     createShipment () {
+      this.submiting = true
       axios.post('shipments', {shipment: this.shipment}).then(response => {
         if (response.code === 200) {
           alert('Tạo vận đơn thành công!')
+          this.submiting = false
           this.$router.push({name: 'shipment'})
         }
         if (response.code === 422) {
+          this.submiting = false
           let er = response.data.errors
           let message = _.head(er[Object.keys(er)[0]])
           this.errors = message
