@@ -31,7 +31,7 @@ const CreateShipment = {
             <label>Quận huyện</label>\
             <select :disabled="!shipment.address_from.city" class="form-control" v-model="shipment.address_from.district">\
               <option value="">Chọn quận huyện</option>\
-              <option v-for="(district, index) in districts" :key="index" :value="district.id">{{district.name}}</option>\
+              <option v-for="(district, index) in districtsFrom" :key="index" :value="district.id">{{district.name}}</option>\
             </select>\
           </div>\
         </div>\
@@ -60,7 +60,7 @@ const CreateShipment = {
             <label>Quận huyện</label>\
             <select :disabled="!shipment.address_to.city" class="form-control" v-model="shipment.address_to.district">\
               <option  value="">Chọn quận huyện</option>\
-              <option v-for="(district, index) in districts" :key="index" :value="district.id">{{district.name}}</option>\
+              <option v-for="(district, index) in districtsTo" :key="index" :value="district.id">{{district.name}}</option>\
             </select>\
           </div>\
         </div>\
@@ -163,7 +163,8 @@ const CreateShipment = {
         }
       },
       cities: [],
-      districts: [],
+      districtsFrom: [],
+      districtsTo: [],
       rates: [],
       doGetFee: 1,
       errors: '',
@@ -194,13 +195,13 @@ const CreateShipment = {
     loadDistrictFrom () {
       this.checkGetFee(1)
       axios('cities/' + this.shipment.address_from.city + '/districts').then(response => {
-        this.districts = response.data
+        this.districtsFrom = response.data
       })
     },
     loadDistrictTo () {
       this.checkGetFee(1)
       axios('cities/' + this.shipment.address_to.city + '/districts').then(response => {
-        this.districts = response.data
+        this.districtsTo = response.data
       })
     },
     getFee: _.debounce(function (e) {
