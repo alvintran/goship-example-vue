@@ -29,9 +29,16 @@ const CreateShipment = {
           </div>\
           <div class="form-group">\
             <label>Quận huyện</label>\
-            <select :disabled="!shipment.address_from.city" class="form-control" v-model="shipment.address_from.district">\
+            <select :disabled="!shipment.address_from.city" class="form-control" v-model="shipment.address_from.district" @change="loadWardFrom">\
               <option value="">Chọn quận huyện</option>\
               <option v-for="(district, index) in districtsFrom" :key="index" :value="district.id">{{district.name}}</option>\
+            </select>\
+          </div>\
+          <div class="form-group">\
+            <label>Phường xã</label>\
+            <select :disabled="!shipment.address_from.district" class="form-control" v-model="shipment.address_from.ward">\
+              <option value="">Chọn phường xã</option>\
+              <option v-for="(ward, index) in wardFrom" :key="index" :value="ward.id">{{ward.name}}</option>\
             </select>\
           </div>\
         </div>\
@@ -168,7 +175,8 @@ const CreateShipment = {
       rates: [],
       doGetFee: 1,
       errors: '',
-      submiting: false
+      submiting: false,
+      wardFrom: []
     }
   },
   methods: {
@@ -220,6 +228,14 @@ const CreateShipment = {
     },
     closeAlert () {
       this.errors = ''
+    },
+    loadWardFrom () {
+      this.checkGetFee(1)
+      if (this.shipment.address_from.district) {
+        axios('districts/' + this.shipment.address_from.district + '/wards').then(response => {
+          this.wardFrom = response.data
+        })
+      }
     }
   },
   watch: {

@@ -16,8 +16,8 @@ const Login = {
       login: {
         username: '',
         password: '',
-        client_id: '',
-        client_secret: ''
+        client_id: '5',
+        client_secret: 'ab5hdWLbFxJHQyvNHnUqDBe0JFVhXhwvRMMUPuOM'
       },
       errors: ''
     }
