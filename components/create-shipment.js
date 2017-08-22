@@ -71,6 +71,8 @@ const CreateShipment = {
             </select>\
           </div>\
         </div>\
+      </div>\
+      <div class="row">\
         <div class="col-sm-4">\
           <h3>Thông tin hàng hóa</h3>\
           <div class="form-group">\
@@ -151,7 +153,8 @@ const CreateShipment = {
           phone: '',
           street: '',
           city: '',
-          district: ''
+          district: '',
+          ward: ''
         },
         address_to: {
           name: '',
